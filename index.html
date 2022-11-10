@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png" />
+    <title>コーディネート記録 Daretoku</title>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://c-inoue09.github.io/gs-kadai03-janken-app-rich/">
+    <meta property="og:image" content="https://c-inoue09.github.io/gs-kadai03-janken-app-rich/img/ogp.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="コーデ記録アプリ" />
+    <meta property="og:description" content="井上の井上による井上のためのコーディネート記録アプリ" />
+    <meta property="og:site_name" content="コーデ記録アプリDaretoku | イノウエ" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <img src="img/logo.png" alt="">
+            
+        </div>
+    </header>
+    <main>
+        <header>
+
+        </header>
+        <div class="wrapper">
+            <div class="wrapper">
+                <!-- xxxx年xx月を表示 -->
+                <h1 id="header"></h1>
+            
+                <!-- ボタンクリックで月移動 -->
+                <div id="next-prev-button">
+                    <button id="prev" onclick="prev()">‹</button>
+                    <button id="next" onclick="next()">›</button>
+                </div>
+            
+                <!-- カレンダー -->
+                <div id="calendar"></div>
+            </div>
+        </div>
+<!--   <div class="modal-open">モーダルを開く</div> -->
+
+        <div class="modal-wrapper">
+            <div class="modal-container">
+                <div class="modal-body">
+                    <div class="modal-close">×</div>  <!-- 閉じるボタン -->
+                    <!-- モーダル内のコンテンツ -->
+                    <div class="modal-content">
+                        <div class="modal-date"></div>
+
+                        <div class = "outfit-result-wrapper">
+                            <div class="outfit-result result-top">
+                                <img src="img/top-undefined.png" alt="">
+                            </div>
+                            <div class="outfit-result result-bottom">
+                                <img src="img/bottom-undefined.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="button-area">
+                            <div class="button reset-button sp">
+                                <a href = "#">リセット</a>
+                            </div>
+                            <button class="button save-button">
+                                <a href = "#">保存</a>
+                            </button>
+                        </div>
+
+                        <details class = "category-wrapper">
+                            <summary>トップス</summary>
+                            <details class = "category-top outfit-items">
+                                <summary>よそゆき</summary>
+                                <div class = items>
+                                    <div class="item">
+                                        <img src="img/top-1.png" alt="" class="item" item-type = "top" item-id = "1">
+                                        <p>古着屋の<br>セーター</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/top-2.png" alt="" class="item" item-type = "top" item-id = "2">
+                                        <p>メルカリの<br>セーター</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/top-3.png" alt="" class="item" item-type = "top" item-id = "3">
+                                        <p>母のおさがり<br>カシミヤ</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/top-4.png" alt="" class="item" item-type = "top" item-id = "4">
+                                        <p>去年買った<br>セーター</p>
+                                    </div>
+                                </div>
+                            </details>
+                            <details class = "category-dull-top outfit-items">
+                                <summary>ダル着</summary>
+                                <div class = "items">
+                                <div class="item">
+                                    <img src="img/top-dull-1.png" alt="" class="item" item-type = "top" item-id = "dull-1">
+                                    <p>弊社Tシャツ</p>
+                                </div>
+                                <div class="item">
+                                    <img src="img/top-dull-2.png" alt="" class="item" item-type = "top" item-id = "dull-2">
+                                    <p>他社パーカー</p>
+                                </div>
+                                <div class="item">
+                                    <img src="img/top-dull-3.png" alt="" class="item" item-type = "top" item-id = "dull-3">
+                                    <p>ユニクロ<br>5年選手</p>
+                                </div>
+                            </div>
+                            </details>
+                        </details>
+                        <details class = "category-wrapper">
+                            <summary>ボトムス</summary>
+                            <details class = "category-bottom outfit-items">
+                                <summary>よそゆき</summary>
+                                <div class = "items">
+                                <div class = "item"><img src="img/bottom-1.png" alt="" class="item" item-type = "bottom" item-id = "1">
+                                <p>夏もいける<br>スカート</p>
+                                </div>
+                                <div class = "item"><img src="img/bottom-2.png" alt="" class="item" item-type = "bottom" item-id = "2">
+                                <p>冬っぽい<br>スカート</p>
+                                </div>
+                                <div class = "item"><img src="img/bottom-3.png" alt="" class="item" item-type = "bottom" item-id = "3">
+                                <p>チュール<br>スカート</p>
+                                </div>
+                                <div class = "item"><img src="img/bottom-4.png" alt="" class="item" item-type = "bottom" item-id = "4">
+                                <p>GUのタイト</p>
+                                </div>
+                                </div>
+                            </details>
+                            <details class = "category-dull-top outfit-items">
+                                <summary>ダル着</summary><div class = "items">
+                                <div class = "item"><img src="img/bottom-dull-1.png" alt="" class="item" item-type = "bottom" item-id = "dull-1">
+                                <p>ユニクロ<br>デニム</p>
+                                </div>
+                                <div class = "item"><img src="img/bottom-dull-2.png" alt="" class="item" item-type = "bottom" item-id = "dull-2">
+                                <p>1500円<br>3年選手</p>
+                                </div>
+                                </div>
+                            </details>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
+    </script>
+
+</body>
+</html>
